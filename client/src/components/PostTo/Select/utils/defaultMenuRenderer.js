@@ -19,12 +19,6 @@ function menuRenderer ({
 }) {
 	let Option = optionComponent;
 
-    // do not show creatable option placeholder, though leave the possibility
-    // to create the option implicitly (on Enter or Tab)
-    if (options.length == 1 & options[0].className === "Select-create-option-placeholder") {
-        options.pop();
-    }
-
 	return options.map((option, i) => {
 		let isSelected = valueArray && valueArray.indexOf(option) > -1;
 		let isFocused = option === focusedOption;
