@@ -1,0 +1,22 @@
+{
+  "name": "translations_app",
+  "version": "0.0.1",
+  "description": "App used to gather translations files in one location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edgaras Padegimas",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "2.2.2",
+    "glob": "7.1.1",
+    "gulp": "3.9.1",
+    "gulp-decompress": "2.0.1",
+    "gulp-zip": "3.2.0",
+    "json2xls": "0.1.2",
+    "merge": "1.2.0",
+    "node-xlsx": "0.7.4",
+    "po2json": "0.4.5"
+  }
+}

@@ -1,0 +1,41 @@
+@import "~styles/variables";
+
+.root {
+    border-top: 1px solid $teal-light;
+    padding: .5rem;
+
+    &:first-child { border-top: 0; }
+
+    &:hover { 
+        background-color: $notification-color;
+        cursor: pointer; 
+    }
+
+    /* Doesn't work, no idea why */
+    &.parent { background: $teal-lighter; } // For parent
+    &.active { background: $grey-bg; } // For parent active  
+    /* End of doesn't work*/
+
+    :global p {
+        color: $black;
+        font-size: $font-size-sm;
+        margin: 0;
+    }
+
+    :global .col-10 {
+        padding-left: 7px;
+    }
+
+}
+
+.username { 
+    font-size: $font-size-md;
+    color: $grey;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 4px;
+}
+ 
+.time-and-task { 
+    color: $grey-lighter !important;
+ }

@@ -1,0 +1,40 @@
+@import "~styles/variables";
+
+.root { 
+    
+     :global ul {
+        border: 1px solid $secondary-color;
+        border-radius: $border-radius-round;
+        margin: auto;
+        display: table;
+        padding: 0 2px;
+
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        .btn {
+            line-height: .75;
+            border: 0;
+            vertical-align: middle;
+            display: inline-block;
+            height: 20px;
+            margin-bottom: 2px;
+
+            &:active, &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .btn-outline-secondary:hover { 
+            background-color: inherit; 
+            color: $secondary-color;
+        }
+
+        .btn-secondary { cursor: default; }
+
+        i { padding-right: 4px; }
+     }
+
+}

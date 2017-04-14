@@ -1,0 +1,59 @@
+@import "~styles/variables";
+
+.root {
+    background: $primary-color;
+    text-transform: uppercase;
+    height: 48px;
+    :global .navbar {
+        padding: 0 1rem; // 1rem is bootstrap default for navbar padding
+        ul.navbar-nav {
+            padding: 0;
+        }
+        li.nav-item {
+            &.active {
+                background-color: $white;
+                color: $black;
+                i {
+                    color: $black;
+                }
+            }
+            &:not(.dropdown) {
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+                margin: 4px 2px 0 2px;
+                &.nav-item.active {
+                    background-color: $white;
+                    .nav-link {
+                        color: $black;
+                    }
+                }
+                .nav-link {
+                    color: $white;
+                }
+                &:hover {
+                    background-color: $green-darker;
+                }
+            }
+            &.nav-item-icon a {
+                padding-left: 14px;
+                padding-right: 14px;
+                padding-top: 10px;
+            }
+            &.dropdown--select {
+                min-width: 290px;
+                margin-left: 0;
+                margin-right: 17px;
+            }
+        }
+        a.nav-link {
+            font-size: $font-size-md;
+            padding-top: 12px;
+            padding-bottom: 10px;
+            padding-left: 26px;
+            padding-right: 26px;
+        }
+        .fa {
+            font-size: 20px;
+        }
+    }
+}

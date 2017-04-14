@@ -1,0 +1,64 @@
+.stv-secondary-nav.navbar {
+    background: $brand-primary;
+    border-radius: 0;
+    top: 52px;
+    z-index: 1029; // 1 level lover than primary navbar
+    line-height: 1.4;
+    padding: 6px 6px 0 6px;
+    @media(max-width: $max-width-md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .navbar-collapse {
+        margin-top: auto;
+    }
+    .navbar-toggler {
+        color: $white;
+        height: 42px;
+        top: 0;
+    }
+    .navbar-nav {
+        .nav-item {
+                font-size: 14px;
+                height: 36px;
+                line-height: 36px;
+                margin: 0;
+                @media(min-width: $min-width-md) {
+                    display: inline-block;
+                    vertical-align: bottom;
+                    text-align: center;
+                    min-width: 150px;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                    margin: 0 2px 0 0;
+                }
+                @media(max-width: $max-width-md) {
+                    background: $brand-primary;
+                    padding: 0 12px;
+                }
+            .nav-link {
+                color: $white;
+                font-weight: 600;
+                text-transform: uppercase;
+                display: block;
+                height: 100%;
+                padding: 0;
+            }
+            &:hover {
+                background: $brand-primary-dark;
+            }
+            &.active {
+                background: $white;
+                .nav-link {
+                    color: $gray-dark;
+                }
+            }
+            &.icon {
+                min-width: 50px;
+                font-size: 20px;
+                line-height: 33px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,183 @@
+@import "variables";
+@import "mixins";
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/type";
+@import "react-select";
+@import "bootstrap-override";
+
+
+/* -----------------------------------------
+
+    Global/default styles
+
+----------------------------------------- */
+
+h1, h2, h3, h4, h5, h6, p, ul { margin: 0; }
+
+ul { padding: 0; }
+
+small {
+    color: $grey-lighter; 
+    font-size: $font-size-sm;
+}
+
+.list{
+    list-style: none;
+    padding: 2px 0; 
+
+    &.list-inline {
+        li { display: inline-block; }
+    }
+
+    &.list-label {
+        li { padding-right: 11px; }
+    }
+}
+
+input, select, textarea, 
+.input-group-btn .btn, .input-group-addon, 
+.input-group .form-control {
+    font-size: $font-size-md;
+    color: $grey-lighter;
+    border-radius: 4px; 
+    outline: none;
+    background-color: #FFF; 
+    border: 1px solid $teal-light;
+}
+
+@include placeholder {
+    color: $grey-lighter !important;
+}
+
+.btn-uppercase {
+    text-transform: uppercase;
+}
+
+.ss-modal {
+    position: absolute;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.icon {
+    font-size: 16px;
+    color: $secondary-color;
+
+  &.icon-circle {
+    color: $white;
+    border-radius: 10em;
+    background-color: $grey;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 2px 4px 3px 4px;
+
+    &.icon-circle-late {
+        background-color: $late-color; 
+    }
+
+    &.icon-circle-progress {
+        background-color: $progress-color;
+    }
+
+    &.icon-circle-complete {
+        background-color: $complete-color;
+    }
+  }  
+
+}
+
+.input-group-long {
+
+    .dropdown-toggle{
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+    
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 10em;
+    background-color: $grey-lighter;
+}
+
+.box {
+  padding: 28px;
+  border-radius: 6px;  
+  border: 1px solid $teal-light;
+  margin-bottom: 8px;
+  background-color: $white;
+
+  a {
+    text-decoration: none;
+  }
+
+  &.box-sm {
+    border-radius: $global-border-radius;
+    padding: 8px 16px;
+    line-height: 1;
+    font-size: $font-size-md;
+
+    .fa-angle-left {
+        padding-right: 16px;
+    }
+
+    .fa-angle-right {
+        padding-left: 16px;
+    }
+
+    .fa-user-circle-o {
+        padding-right: 4px;
+    }
+  }
+
+  &.box-half {
+    width: 50%;
+  }
+
+}
+
+
+/* ------------------------------------------
+
+    Space selector dropdown (TopMenu)
+
+------------------------------------------ */
+
+.dropdown--select {
+    border-radius: 4px;
+    background-color: $white;
+    margin: 4px 1px 4px 16px;
+    a {
+        color: $primary-color;
+        padding: 12px 8px 7px 18px !important;
+        &:after {
+            right: 12px;
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    }
+    .fa {
+        font-size: 15px !important;
+        &:first-child {
+            padding-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "~styles/variables";
+
+.root {
+    border-top: 1px solid $teal;
+    border-left: 1px solid $teal;
+    border-bottom: 1px solid $teal;
+    padding: .75rem 0;
+    overflow: hidden;
+    border-top-left-radius: $global-border-radius;
+    border-bottom-left-radius: $global-border-radius;
+}

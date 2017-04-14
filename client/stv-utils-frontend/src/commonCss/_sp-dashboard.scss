@@ -1,0 +1,191 @@
+#home-title {
+    width: 100%;
+    height: 288px;
+    text-align: center;
+    background: #ffffff;
+    display: table;
+    margin: 66px auto;
+    padding: 15px 100px;
+    position: relative;
+    // Boxshadow
+    box-shadow: 0px 4px 4px 0px rgba(2, 2, 2, 0.35);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(2, 2, 2, 0.35);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(2, 2, 2, 0.35);
+    h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: $brand-primary;
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        span:last-child {
+            display: block;
+            font-size: 30px;
+            color: #020202;
+            font-weight: bold;
+            margin: 15px 0 0 0;
+        }
+        @media(max-width: $max-width-xl) {
+            font-size: 40px;
+            span:last-child {
+                font-size: 20px;
+            }
+        }
+    }
+    &:after {
+        content: '';
+        width: 219px;
+        height: 219px;
+        background-image: url('./img/home-title-ribbon.png');
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: -22px;
+        left: -24px;
+        position: absolute;
+    }
+    @media(max-width: $max-width-xl) {
+        height: 240px;
+        padding: 15px 50px;
+        &:after {
+            width: 150px;
+            height: 150px;
+            top: -14px;
+            left: -16px;
+        }
+    }
+}
+
+#services-list {
+    text-align: center;
+    > div[class*='col-'] {
+        display: flex;
+        align-content: stretch;
+    }
+    h1 {
+        font-size: 38px;
+        font-weight: bold;
+        color: #000000;
+        text-align: center;
+        margin: 30px 0 50px 0;
+        span {
+            border-bottom: 2px solid #000000;
+        }
+    }
+    .service-link {
+        text-decoration: none;
+        display: block;
+    }
+    .service {
+        // Gradient
+        background-image: rgb(216,216,214);
+        background-image: -moz-linear-gradient(top, rgba(216,216,214,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+        background-image: -webkit-linear-gradient(top, rgba(216,216,214,1) 0%,rgba(246,246,246,1) 47%,rgba(255,255,255,1) 100%);
+        background-image: linear-gradient(to bottom, rgba(216,216,214,1) 0%,rgba(246,246,246,1) 47%,rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d6', endColorstr='#ffffff',GradientType=0 );
+        // Folded corner (If using :after selector couses some problems then use two divs. One for gradient other for folded corner.
+        // Eg. .outer-service for gradient and .inner-service for folded corner)
+        &:after {
+            position: absolute;
+            right: 1px;
+            bottom: 1px;
+            display: block;
+            content: '';
+            width: 110px;
+            height: 110px;
+            background-image: url('./img/folded-corner.png');
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: contain;
+        }
+        // Inner box shadow
+        box-shadow: 0px 0px 4px 0px rgba(2, 2, 2, 0.5) inset;
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(2, 2, 2, 0.5) inset;
+        -moz-box-shadow: 0px 0px 4px 0px rgba(2, 2, 2, 0.5) inset;
+        // Border radius
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        // Other params
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        align-items: center;
+        width: 100%;
+        margin: 0 0 30px 0;
+        position: relative;
+        padding: 15px;
+        h4 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
+            color: #020202;
+            text-transform: none;
+            div[class$='-icon'] {
+                height: 45px;
+                background-size: contain;
+                background-position: center;
+                margin: 0 0 5px 0;
+            }
+            .like-icon {
+                background: url('./img/like-icon.png') no-repeat;
+            }
+            .page-icon {
+                background: url('./img/page-icon.png') no-repeat;
+            }
+            .helmet-icon {
+                background: url('./img/helmet-icon.png') no-repeat;
+            }
+            .tools-icon {
+                background: url('./img/tools-icon.png') no-repeat;
+            }
+            .cloud-arrow-icon {
+                background: url('./img/cloudArrow-icon.png') no-repeat;
+            }
+            .cloud-gear-icon {
+                background: url('./img/cloudGear-icon.png') no-repeat;
+            }
+        }
+        .text-wrapper {
+            font-size: 17px;
+            color: #3a3f42;
+            margin: 15px 0;
+            min-height: 42px;
+            p {
+                margin: 0;
+            }
+        }
+        .go-to-service {
+            background-color: $brand-primary;
+            background-image: url('./img/check-icon.png');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding: 8px 36px 8px 11px;
+            color: #ffffff;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 13px;
+            text-decoration: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0px 0px 5px 1px rgba(155,153,153,0.9);
+            -moz-box-shadow: 0px 0px 5px 1px rgba(155,153,153,0.9);
+            box-shadow: 0px 0px 5px 1px rgba(155,153,153,0.9);
+            z-index: 1;
+            margin-top: auto;
+            &:hover {
+                -webkit-box-shadow: 0px 0px 5px 1px darken(rgba(155,153,153,0.9), 60%);
+                -moz-box-shadow: 0px 0px 5px 1px darken(rgba(155,153,153,0.9), 60%);
+                box-shadow: 0px 0px 5px 1px darken(rgba(155,153,153,0.9), 60%);
+            }
+        }
+    }
+    .readmore-link {
+        font-size: 21px;
+    }
+    hr {
+        margin-top: 0;
+    }
+
+}

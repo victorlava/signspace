@@ -1,0 +1,39 @@
+@import "~styles/variables";
+
+.root {
+
+    :global p {
+        line-height: 14.4px;
+    }
+
+    :global a {
+        text-decoration: none;
+        &:hover {
+            color: $grey-lighter;
+        }
+    }
+    
+}
+
+.group {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid $teal-light;
+    &:first-child { border-top:0; }
+}
+
+.title {
+    font-size: $font-size-sm;
+    color: $grey-lighter;
+    padding: .5rem;
+    line-height: 1;
+    display: block;
+}
+
+ul.item-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid $teal-light;
+}

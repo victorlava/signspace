@@ -1,0 +1,352 @@
+/*
+* FONT
+*/
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('./fonts/Mark-Simonson-Proxima-Nova-Regular.otf') format('opentype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('./fonts/Mark-Simonson-Proxima-Nova-Semibold.otf') format('opentype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('./fonts/Mark-Simonson-Proxima-Nova-Extrabold.otf') format('opentype');
+    font-weight: 700;
+}
+/*
+* GLOBAL CSS
+*/
+body {
+    color: $gray-dark;
+    font-size: $font-size-root;
+}
+h1 {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    font-weight: bold;
+    }
+h2 {
+    margin-bottom: 16px;
+}
+h3 {
+    margin-bottom: 16px;
+    }
+h4, h5 {
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+small {
+    font-size: 14px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+big {
+    font-size: 18px;
+}
+:-ms-input-placeholder { /* IE10–11 */
+    color: $input-color-placeholder;
+}
+::-ms-input-placeholder { /* Edge */
+    color: $input-color-placeholder;
+}
+// Hack to hide IE clear buton (SP-318):
+input::-ms-clear {
+    display: none;
+}
+/*
+* CUSTOM CLASSES
+*/
+.fa-mr {
+    margin-right: 10px;
+}
+.fa-ml {
+    margin-left: 10px;
+}
+.fa-mx {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.fa-pr {
+    padding-right: 10px;
+}
+.fa-pl {
+    padding-left: 10px;
+}
+.fa-px {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.text-main {
+    color: $gray-dark;
+}
+.text-light {
+    color: $gray;
+}
+.text-very-light {
+    color: $gray-light;
+}
+.text-inverse {
+    color: $white;
+    background: $gray-dark;
+}
+[class*='form-control-description'] {
+    color: $gray-light;
+    min-height: 40px;
+    display: flex;
+    align-items: center; /* align vertical */
+    line-height: 1.2;
+    &.label-space {
+        margin-top: 31px;
+    }
+}
+.form-control-description-sm {
+    min-height: 36px;
+}
+.form-control-description-lg {
+    min-height: 44px;
+}
+.resize-inputs-wrapper input {
+    height: 40px;
+}
+.resize-inputs-wrapper-lg input {
+    height: 44px;
+}
+.resize-inputs-wrapper-sm input {
+    height: 36px;
+}
+/*
+* BOOTSTRAP ADJUSTMENTS WHICH CAN'T BE DO THROUGH VARIABLES
+*/
+@include bg-variant('.bg-white', $white);
+.card {
+    margin-bottom: ($spacer-x * 2);
+}
+.card-default {
+    @include card-variant($gray-lightest-1, $gray-lightest-1);
+}
+.card-header {
+    color: $white;
+}
+.modal-header {
+    color: $white;
+    background: $brand-primary;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    .close {
+        color: $white;
+        opacity: 1 !important;
+    }
+}
+.modal-content {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.input-group {
+    .input-group-addon:first-child {
+        + .form-control {
+            border-left: 0;
+            &:focus {
+                -webkit-box-shadow: inset 1px 0px 0px 0px rgba($input-border-focus,1);
+                -moz-box-shadow: inset 1px 0px 0px 0px rgba($input-border-focus,1);
+                box-shadow: inset 1px 0px 0px 0px rgba($input-border-focus,1);
+            }
+        }
+    }
+    .form-control:first-child {
+        border-right: 0;
+        &:focus {
+            -webkit-box-shadow: inset -1px 0px 0px 0px rgba($input-border-focus,1);
+            -moz-box-shadow: inset -1px 0px 0px 0px rgba($input-border-focus,1);
+            box-shadow: inset -1px 0px 0px 0px rgba($input-border-focus,1);
+        }
+    }
+}
+.custom-control-indicator {
+    border: 1px solid $gray-lighter;
+}
+.custom-control {
+    line-height: 1.8;
+}
+.form-control-label {
+    color: $gray;
+    margin: 0 0 5px 0;
+    line-height: normal;
+}
+.form-control-feedback {
+    font-size: 14px;
+}
+.alert {
+    i {
+        font-size: 1.3rem;
+    }
+    &.alert-danger {
+        font-weight: 600;
+    }
+    &.alert-default {
+         @include alert-variant($gray-lightest, $gray-lightest, $gray-dark);
+    }
+}
+.alert-danger {
+    @include alert-variant($gray-lightest-2, $brand-danger, $brand-danger);
+}
+.btn-default {
+  @include button-variant($gray, $white, $gray-lighter);
+}
+.btn-outline-default {
+  @include button-outline-variant($gray);
+}
+.btn {
+    line-height: 0.9;
+    font-size: 18px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    max-width: 350px;
+    > i.fa {
+        padding-right: 10px;
+        line-height: 0.9;
+    }
+    &.btn-lg {
+        min-width: 100px;
+        line-height: 0.6;
+    }
+    &.btn-sm {
+        font-size: 14px;
+        min-width: 50px;
+        line-height: 1.6;
+    }
+}
+.dropdown {
+    .dropdown-toggle {
+        border-radius: 2px;
+    }
+    .dropdown-menu {
+        border-radius: 2px;
+    }
+}
+.progress {
+    .progress-bar {
+        line-height: 1.4;
+    }
+}
+.table {
+    thead  {
+        th {
+            border-bottom: 0;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+    }
+    tbody {
+        // Hard fix to override colors
+        tr {
+            &:active {
+                background-color: $brand-primary;
+                color: $white;
+                a {
+                    color: $white;
+                }
+                .text-success, .text-primary, i {
+                    color: $white !important;
+                }
+            }
+        }
+    }
+    td, th {
+        border-top: 0;
+        border-bottom: 1px solid $gray-lightest;
+        line-height: 1.25;
+    }
+    i {
+        font-size: 18px;
+    }
+}
+.badge-white {
+     @include badge-variant($white);
+}
+.badge {
+    border-radius: 2px;
+    line-height: 1.6;
+    > a {
+        color: $white;
+    }
+    &.hover {
+        cursor: pointer;
+        &.badge-default:hover {
+            background: darken($gray-light, 10%);
+        }
+        &.badge-primary:hover {
+            background: $brand-primary-dark;
+        }
+        &.badge-success:hover {
+            background: darken($brand-success, 10%);
+        }
+        &.badge-info:hover {
+            background: darken($brand-info, 10%);
+        }
+        &.badge-warning:hover {
+            background: darken($brand-warning, 10%);
+        }
+        &.badge-danger:hover {
+            background: darken($brand-danger, 10%);
+        }
+        &.badge-white:hover {
+            background: darken($white, 10%);
+        }
+    }
+    &.badge-white {
+        color: $gray-light;
+        border: 1px solid $gray-lightest;
+        > a {
+            color: $gray-light;
+        }
+    }
+}
+.nav-tabs {
+    border-bottom: 2px solid $brand-primary;
+    margin-bottom: -2px;
+    .nav-item:not(:last-child) {
+        margin-right: 3px;
+    }
+}
+.custom-file-control {
+    border: $border-width dashed $white;
+    height: auto;
+    position: relative;
+    line-height: normal;
+    max-width: 272px;
+    display: flex;
+    align-items: center;
+    min-height: 72px;
+    &:before {
+        display: none;
+    }
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    &:lang(en) {
+        &:before, &:after {
+            content: '';
+        }
+    }
+    > i {
+        font-size: 34px;
+        text-align: center;
+        display: block;
+        float: left;
+        vertical-align: middle;
+        margin: 0 33px 0 23px;
+    }
+}
+.custom-file-input {
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+}

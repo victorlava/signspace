@@ -1,0 +1,21 @@
+@import "~styles/variables";
+
+.root {
+ 	background-color: red;
+	border: 1px solid $secondary-color;
+
+	 :global ul {
+	 	margin: 0; 
+	 	padding: 0; 
+
+	 	li {
+	 		list-style: none;
+	 		display: inline-block;
+	 	}
+
+	 	.btn {
+	 		cursor: default;
+	 	}
+	 }
+
+}

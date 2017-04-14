@@ -1,0 +1,22 @@
+@import "~styles/variables";
+
+.root {
+	padding-bottom: 18px;
+}
+
+.title {
+    color: $grey-light;
+    text-transform: capitalize;
+}
+
+.labels {
+
+}
+
+.see {
+    color: $secondary-color;
+    font-size: $font-size-md;
+    padding-top: 6px;
+
+    i { padding-right: 8px; }
+}

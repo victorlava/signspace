@@ -1,0 +1,63 @@
+@import "~styles/variables";
+
+.root {
+
+    background: $white;
+    border-radius: $global-border-radius;
+    border: 1px solid $teal-light;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.create {
+    padding: 12px 16px; 
+
+    :global .btn {
+        padding-top: 6px;
+        padding-bottom: 6px; 
+    }
+
+    :global p {
+        float: right;
+        display: inline-block;
+        line-height: 1.6;
+        padding-right: 18px;
+    }
+}
+
+.icons {
+
+    :global ul {
+        li {
+            display: inline-block;
+            padding-right: 16px;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.fileupload-dropzone {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+    padding: 12px;
+    margin: 6px;
+    border: 3px dashed #ccc; 
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    color: #ccc;
+    padding-top: 64px;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.attached-file {
+    display: block;
+    padding: 4px 16px;
+}

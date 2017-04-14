@@ -1,0 +1,25 @@
+@import "~styles/variables";
+
+.root {
+
+    :global input, :global textarea {
+        border: 0;
+        outline: 0;
+        padding: 12px 16px;
+        line-height: 1;
+    }
+ 
+    :global textarea {
+        height: 200px;
+        line-height: 1.5;
+        width: 100%;
+    }
+
+    :global .input-group {
+        border-bottom: 1px solid $teal-light; 
+    }
+}
+
+.newActivity {
+    
+}

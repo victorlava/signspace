@@ -1,0 +1,9 @@
+bottle
+click
+dill
+everett
+funcy
+redis
+schematics==2.0.0.a1
+typing
+python-magic==0.4.13

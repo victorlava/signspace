@@ -1,0 +1,15 @@
+@import "~styles/variables";
+
+.root {
+    border: 1px solid $teal;
+    background-color: $grey-bg;
+    border-top-right-radius: $global-border-radius;
+    border-bottom-right-radius: $global-border-radius;
+    border-bottom-left-radius: $global-border-radius;
+    min-height: 1000px;
+    position: relative;
+}
+
+.inner {
+    padding: 24px 96px 24px 96px; // TODO: convert to rem
+}

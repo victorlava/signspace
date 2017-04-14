@@ -1,0 +1,68 @@
+@import "~styles/variables";
+
+.root { 
+    font-size: $font-size-md;
+    position: relative;
+
+    :global a { 
+        text-decoration: none;
+        i { color: $secondary-color; }
+    }
+
+    :global i { padding: 0 2px; }
+
+    :global small { color: $grey-lighter; }
+}
+
+.title {
+    font-size: $font-size-md-ex;
+    line-height: 1.35;
+    :global i { color: $grey-lighter; }
+
+}
+
+.name {
+  :global .fa-long-arrow-right { 
+    padding-right: 6px; 
+    padding-left: 4px;
+    }
+}
+
+.date {
+    color: $grey;
+    padding-left: 20px;
+
+    :global i { padding-left: 8px; }
+}
+
+.text {
+    line-height: 16.8px;
+    padding-right: 4em;
+    padding-top: 2px;
+}
+
+/* TODO: move to different component? */
+
+.attachment {
+    position: relative;
+    font-size: $font-size-md;
+    border: 1px solid $teal-light;
+    margin-top: 8px;
+    border-radius: $global-border-radius;
+ 
+    :global a {
+        padding: 13.5px;
+        display: block;
+        text-decoration: none;
+
+        i { padding-right: 4px; } 
+    }
+
+    .gear {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        padding: 0;
+    }
+
+}

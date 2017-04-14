@@ -1,0 +1,54 @@
+@import "~styles/variables";
+
+.root {
+    position: relative;
+    overflow: hidden;
+    color: $black;
+}
+
+:global span.description {
+    color: $black;
+    padding-left: 8px;
+}
+
+:global p.ellipsis {
+    width: 90%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: bottom; 
+    text-overflow: ellipsis; 
+}
+
+.parent {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 8px;
+    background-color: $secondary-color;
+    left: 0;
+    top: 0;
+}
+
+.star {
+    position: absolute;
+    left: 15px;
+    top: 1px;
+
+    :global i { 
+
+        color: #bebebe;
+        &:hover { color: $orange; }
+    }
+}
+
+.tools { 
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    text-align: center;
+
+     :global li {
+        list-style: none;
+     }
+}

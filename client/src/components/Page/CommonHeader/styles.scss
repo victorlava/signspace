@@ -1,0 +1,38 @@
+@import "~styles/variables";
+
+.root {
+    :global .navbar {
+        height: 40px;
+        .logo {
+            width: 160px;
+        }
+        li {
+            &:hover {
+                background: #eee;
+            }
+            .nav-link {
+                padding: 9.5px 16px;
+            }
+        }
+        a {
+            font-size: $font-size-md;
+            color: $grey;
+            i:first-child {
+                padding-right: 4px;
+            }
+        }
+        .dropdown-menu {
+            margin-top: -1px;
+            width: 100%;
+            box-shadow: none;
+            border-top: 0;
+            border-radius: 0;
+            padding: 0;
+            .dropdown-item {
+                padding: 8px 1.5rem;
+            }
+        }
+    }
+}
+
+

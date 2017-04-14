@@ -1,0 +1,107 @@
+html.push-stv-footer {
+    height: 100%;
+    body {
+        height: 100%;
+    }
+    .stv-footer-parent {
+        position: relative;
+        min-height: 100%;
+    }
+    .stv-footer-extend {
+        position: relative;
+        height: 100%;
+    }
+    .stv-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+.stv-footer {
+    line-height: 20px;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    background: $white;
+    &:before {
+        content: '';
+        display: block;
+        border-top: 4px solid $brand-primary;
+        margin-bottom: 16px;
+    }
+    > .row {
+        > div[class*="col-"] {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-left: 1px solid $black;
+            &:first-child {
+                border-left: 0;
+            }
+            &:last-child {
+                border-left: 0;
+            }
+            @media(min-width: $min-width-xl){
+                &:last-child {
+                    padding-left: 0;
+                }
+            }
+            @media(max-width: $max-width-lg){
+                text-align: center;
+                &:nth-child(3) {
+                    border-left: 0;
+                }
+                &:first-child {
+                    img {
+                        height: 70px;
+                        margin: 0 auto;
+                    }
+                }
+
+            }
+            @media(max-width: $max-width-sm){
+                border: 0;
+                &:after {
+                    content: '';
+                    display: block;
+                    border-bottom: 1px solid $black;
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+    h3 {
+        font-size: $font-size-base;
+        line-height: 20px;
+        margin: 0;
+        color: $black;
+    }
+    a {
+        text-decoration: none;
+        color: $brand-primary;
+        &:hover {
+            color: $black;
+        }
+    }
+    ul {
+        margin: 0;
+        color: $black;
+        font-weight: 600;
+    }
+    .social-links {
+        font-size: 0;
+        a {
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            color: $black;
+            padding: 0 7px;
+            &:last-child {
+                padding-right: 0;
+            }
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+}

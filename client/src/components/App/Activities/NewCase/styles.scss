@@ -1,0 +1,52 @@
+@import "~styles/variables";
+
+.root {
+    background-color: $grey-bg;
+    padding: 1rem;
+    font-size: $font-size-md;
+    position: relative;
+    border-radius: 6px;
+}
+
+.labels {
+    padding: 11px 0;
+
+    ul {
+        padding: 6px 0;
+    }
+
+}
+
+.title {
+    color: $black;
+    line-height: 1;
+}
+
+.description {
+    display: block;
+    padding-bottom: 8px;
+}
+ 
+.case { 
+ 
+    :global .input-group {
+        .btn, i { font-size: $font-size-sm; }
+
+        .dropdown-toggle:after {
+            border-top: 4px solid $secondary-color;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+        }
+
+        .btn {
+            i { margin-right: 5px; }
+        }   
+    }
+
+}
+
+.close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}

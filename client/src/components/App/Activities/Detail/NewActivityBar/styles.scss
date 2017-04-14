@@ -1,0 +1,23 @@
+@import "~styles/variables";
+
+.root {
+    position: fixed;
+    bottom: 0;
+    padding: 16px;
+    background-color: $primary-color;
+    margin: auto;
+}
+
+.add { 
+    padding: 10.5px 16px;
+    font-size: $font-size-md;
+    border-color: $primary-color;
+    color: $grey-lighter;
+}
+
+.close {
+    position: absolute;
+    top: 6px;
+    right: 14px;
+    color: $white;
+}

@@ -1,0 +1,22 @@
+.root {
+
+    :global .box {
+        margin-left: auto;
+    }
+
+    :global li {
+        list-style: none;
+    }
+
+    :global .icon-circle {
+        left: -8px; 
+        top: 8px;
+        position: absolute;
+        padding: 3px 4px 3px 4px;
+    }
+
+    :global .box {
+        position: relative;
+    }
+    
+}
