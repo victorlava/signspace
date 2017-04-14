@@ -28,7 +28,7 @@ help:
 	@echo "make clean_pycache          # remove python cache"
 
 .PHONY: run
-run:
+run: environ
 	$(SIGNSPACE)
 
 $(VENV_SCRIPT):
