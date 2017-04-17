@@ -10,7 +10,7 @@ import {PrivacySelector} from 'components/PrivacySelector';
 import {FileUpload} from 'components/FileUpload';
 import {PostTo} from 'components/PostTo';
 import './styles.scss';
- 
+
 @observer
 @autobind
 export class Message extends Component {
@@ -54,7 +54,7 @@ export class Message extends Component {
                     {/*<input placeholder="Addressed to" />*/}
                     <PostTo
                         value={this.props.activity.to}
-                        onChnage={this.handleToChange}
+                        onChange={this.handleToChange}
                     />
                 </div>
                 <div className="input-group">
@@ -84,7 +84,7 @@ export class Message extends Component {
                         onChange={this.handleChange}
                     />
                 </If>
-                <div styleName="create" className="row"> 
+                <div styleName="create" className="row">
                     <div styleName="icons" className="col-6">
                         <ul>
                             <li className="icon" onClick={this.handleOnAttachmentIconClick}>
