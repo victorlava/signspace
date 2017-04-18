@@ -39,7 +39,7 @@ export class Activity extends Component {
 
 
     render() {
-        const parentClass = this.props.parent ? 'Activities__Detail__parent-activity' : '';
+        const parentClass = this.props.parent ? 'box-parent' : '';
         return (
             <div>
                 <If condition={this.props.parent && this.parentActivity}>
