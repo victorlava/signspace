@@ -19,6 +19,7 @@ export class Message extends Component {
         activity: MobxPropTypes.observableObject.isRequired,
         showPrivacySelector: PropTypes.bool.isRequired,
         submitButtonText: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired,
         onSubmit: PropTypes.func.isRequired,  // TODO: change to onCreate
     }
 
@@ -39,7 +40,7 @@ export class Message extends Component {
     }
 
     @action handleToChange(value) {
-        this.props.activity['to'] = value;
+        this.props.onChange(value);
     }
 
     handleOnAttachmentIconClick(e) {

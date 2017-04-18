@@ -20,6 +20,7 @@ export class NewActivity extends Component {
         activity: MobxPropTypes.observableObject.isRequired,
         showPrivacySelector: PropTypes.bool,
         submitButtonText: PropTypes.string,
+        onChange: PropTypes.func,
         onSubmit: PropTypes.func,
     }
 
@@ -27,6 +28,7 @@ export class NewActivity extends Component {
         activity: observable(new Activity()),
         showPrivacySelector: false,
         submitButtonText: 'Post',
+        onChange: () => {},
         onSubmit: () => {},
     }
 
