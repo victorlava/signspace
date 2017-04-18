@@ -43,7 +43,6 @@ export class FileUpload extends Dropzone {
             return;
         }
         this.dragInProgress = true;
-        console.log('drag start'); 
     }
 
     @action handleDragEnd(e) {
@@ -51,7 +50,6 @@ export class FileUpload extends Dropzone {
             return;
         }
         this.dragInProgress = false;
-        console.log('drag end'); 
     }
 
     componentWillMount() {

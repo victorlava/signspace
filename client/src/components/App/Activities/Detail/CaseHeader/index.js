@@ -43,7 +43,6 @@ export class CaseHeader extends Component {
               <i className="fa fa-lock"></i>
           );
         };
-        console.log(this.props);
         return (
             <div styleName="root">
                 <div className="row">
