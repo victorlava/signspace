@@ -151,6 +151,24 @@ input, select, textarea,
     width: 50%;
   }
 
+  &.box-parent {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 8px;
+        background-color: $secondary-color;
+        left: -7px; 
+        top: 0;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+  }
+
 }
 
 

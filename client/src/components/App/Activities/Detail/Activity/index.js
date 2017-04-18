@@ -44,10 +44,8 @@ export class Activity extends Component {
                 <If condition={this.props.parent && this.parentActivity}>
                     <ParentLink parentActivity={this.parentActivity} />
                 </If>
-                <div styleName="root" className="box">
-                    <If condition={this.props.parent}>
-                        <div styleName="parent" />
-                    </If>
+                {/* TODO: If parent then add class "box-parent" to .box */}
+                <div styleName="root" className="box box-parent">
                     <Message activity={this.props.activity} />
                     <div styleName="star">
                         <Link className="icon" to="#">
