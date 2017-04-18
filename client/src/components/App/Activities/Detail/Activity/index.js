@@ -8,8 +8,6 @@ import {Link} from 'react-router-dom';
 import {ParentLink} from './ParentLink';
 import {ChildLink} from './ChildLink';
 import {Message} from './Message';
-import {Signing} from './Signing';
-import {Task} from './Task';
 import './styles.scss';
 
 
@@ -40,32 +38,32 @@ export class Activity extends Component {
     }
 
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>
                 <If condition={this.props.parent && this.parentActivity}>
                     <ParentLink parentActivity={this.parentActivity} />
                 </If>
                 <div styleName="root" className="box">
-                    <If condition={this.props.parent}> 
-                        <div styleName="parent"></div> 
+                    <If condition={this.props.parent}>
+                        <div styleName="parent" />
                     </If>
                     <Message activity={this.props.activity} />
                     <div styleName="star">
                         <Link className="icon" to="#">
-                            <i className="fa fa-star"></i>
-                        </Link> 
+                            <i className="fa fa-star" />
+                        </Link>
                     </div>
-                    <div styleName="tools">   
+                    <div styleName="tools">
                         <ul>
                             <li>
                                 <Link className="icon" to="#">
-                                    <i className="fa fa-reply"></i>
-                                </Link> 
+                                    <i className="fa fa-reply" />
+                                </Link>
                             </li>
                             <li>
                                 <Link className="icon" to="#">
-                                    <i className="fa fa-caret-down"></i>
+                                    <i className="fa fa-caret-down" />
                                 </Link>
                             </li>
                         </ul>

@@ -28,7 +28,19 @@ export class Detail extends Component {
 
     @computed get childActivities() {
         const {objects} = this.props.stores.activityStore;
-        return objects.filter((obj) => obj.parent_id === this.activity.id);
+        var child_activities = objects.filter((obj) => obj.parent_id === this.activity.id);
+
+        return child_activities.sort((a, b) => {
+            // XXX: should created be converted to a some kind of date time object
+            // it works with strings now, though will it work all the time as expected?
+            if (a.created < b.created) {
+                return -1;
+            } else if (a.created > b.created) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
     }
 
     render() {
