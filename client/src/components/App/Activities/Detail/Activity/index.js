@@ -12,7 +12,7 @@ import './styles.scss';
 
 
 @inject('stores')
-@observer
+@observer 
 @autobind
 export class Activity extends Component {
 

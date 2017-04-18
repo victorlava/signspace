@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, reaction} from 'mobx';
 import {observer, inject} from 'mobx-react';
 import autobind from 'autobind-decorator';
+import queryString from 'query-string';
+import {animateScroll} from 'react-scroll';
 
 import {NewActivity} from 'components/App/Activities/NewActivity';
 import {Activity} from 'models/Activity';
 import './styles.scss';
 
 
-@inject('stores')
+@inject('stores', 'history')
 @observer
 @autobind
 export class NewActivityBar extends Component {
@@ -26,21 +28,38 @@ export class NewActivityBar extends Component {
 
     constructor(props, context) {
         super(props, context);
-        this.initActivity();
+        this.initNewActivity();
+        this.checkIsShown();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.parentActivity.id !== nextProps.parentActivity.id) {
+            this.initNewActivity(nextProps.parentActivity);
+        }
+        this.checkIsShown();
     }
 
     componentDidMount() {
         this.setWidth();
     }
 
-    @action initActivity() {
-        this.newActivity = this.createActivity();
+    checkIsShown() {
+        const {history} = this.props;
+        const qs = queryString.parse(window.location.search);
+        if ('reply' in qs) {
+            this.show();
+            this.props.history.replace(window.location.pathname);
+        }
+    }
+
+    @action initNewActivity(parent) {
+        parent = parent || this.props.parentActivity;
+        this.newActivity = this.createActivity(parent);
     }
 
     // TODO: Move to activityStore
-    createActivity() {
+    createActivity(parent) {
         const activity = new Activity();
-        const parent = this.props.parentActivity;
         activity.parent_id = parent.id;
         activity.to = parent.to;
         activity.case_id = parent.case_id;
@@ -48,12 +67,22 @@ export class NewActivityBar extends Component {
     }
 
     @action show() {
+        if (this.isShown) {
+            return;
+        }
         this.isShown = true;
         document.addEventListener('click', this.handleClickPage, false);
         this.setWidth();
+        animateScroll.scrollTo(
+            $('.Activities__Detail__parent-activity').offset().top - 8,
+            {duration: 350}
+        );
     }
 
     @action hide() {
+        if ( ! this.isShown) {
+            return;
+        }
         this.isShown = false;
         document.removeEventListener('click', this.handleClickPage, false);
     }
@@ -88,7 +117,7 @@ export class NewActivityBar extends Component {
             .then(() => this.props.stores.activityStore.load())
             .then(() => this.props.stores.documentStore.load())
             .then(() => this.hide())
-            .then(() => this.initActivity());
+            .then(() => this.initNewActivity());
     }
 
     render() {
@@ -116,7 +145,7 @@ export class NewActivityBar extends Component {
                                 type="text"
                                 className="form-control"
                                 aria-label="Reply"
-                                placeholder="Reply"
+                                placeholder="Click here to reply"
                             />
                         </div>
                     </Otherwise>

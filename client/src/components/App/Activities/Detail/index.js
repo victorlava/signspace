@@ -35,11 +35,11 @@ export class Detail extends Component {
             // it works with strings now, though will it work all the time as expected?
             if (a.created < b.created) {
                 return -1;
-            } else if (a.created > b.created) {
-                return 1;
-            } else {
-                return 0;
             }
+            if (a.created > b.created) {
+                return 1;
+            }
+            return 0;
         });
     }
 
