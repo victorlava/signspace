@@ -51,6 +51,10 @@ export class NewActivityBar extends Component {
         this.width = $('.Activities__Detail').width() + 'px';
     }
 
+    @action handleToChange(value) {
+        this.newActivity.to = value.map((val) => val.display_name );
+    }
+
     handleClickPage(e) {
         if ( ! e.target.closest('.new-activity-container')) {
             this.hide();
@@ -87,6 +91,7 @@ export class NewActivityBar extends Component {
                             <NewActivity
                                 activity={this.newActivity}
                                 onSubmit={this.handleSubmit}
+                                onChange={this.handleToChange}
                             />
                         </div>
                     </When>
