@@ -25,13 +25,13 @@ export class Message extends Component {
 
     @observable attachedFiles = [];
 
+    componentDidMount() {
+        this.text.focus();
+    }
+
     @action handleUpload(files) {
         this.attachedFiles = files;
         this.props.activity.attachments = files.map((f) => f.id);
-    }
-
-    componentDidMount() {
-        this.text.focus();
     }
 
     @action handleChange(e) {
@@ -44,7 +44,6 @@ export class Message extends Component {
     }
 
     handleOnAttachmentIconClick(e) {
-        console.log('fileupload', this.fileupload);
         this.fileupload.open();
     }
 
@@ -59,12 +58,15 @@ export class Message extends Component {
                     />
                 </div>
                 <div className="input-group">
-                    <FileUpload ref={(node) => { this.fileupload = node; }} styleName="fileupload-dropzone" onUpload={this.handleUpload}>
+                    <FileUpload
+                        ref={(node) => { this.fileupload = node; }}
+                        styleName="fileupload-dropzone"
+                        onUpload={this.handleUpload}>
                         Drop Here
                     </FileUpload>
                     <textarea
                         name="text"
-                        ref={(ref) => {this.text = ref;}}
+                        ref={(ref) => { this.text = ref; }}
                         value={this.props.activity.text}
                         onChange={this.handleChange}
                         placeholder="Your message"
@@ -81,7 +83,7 @@ export class Message extends Component {
 
                 <If condition={this.props.showPrivacySelector}>
                     <PrivacySelector
-                        value={this.props.first_activity.privacy}
+                        value={this.props.activity.privacy}
                         onChange={this.handleChange}
                     />
                 </If>
