@@ -12,7 +12,7 @@ import './styles.scss';
 
 
 @inject('stores')
-@observer 
+@observer
 @autobind
 export class Activity extends Component {
 
@@ -39,13 +39,16 @@ export class Activity extends Component {
 
 
     render() {
+        const parentClass = this.props.parent ? 'Activities__Detail__parent-activity' : '';
         return (
             <div>
                 <If condition={this.props.parent && this.parentActivity}>
                     <ParentLink parentActivity={this.parentActivity} />
                 </If>
-                {/* TODO: If parent then add class "box-parent" to .box */}
-                <div styleName="root" className="box box-parent">
+                <div styleName="root" className={`box ${parentClass}`}>
+                    <If condition={this.props.parent}>
+                        <div styleName="parent" />
+                    </If>
                     <Message activity={this.props.activity} />
                     <div styleName="star">
                         <Link className="icon" to="#">
@@ -55,7 +58,7 @@ export class Activity extends Component {
                     <div styleName="tools">
                         <ul>
                             <li>
-                                <Link className="icon" to="#">
+                                <Link className="icon" to={`/activities/${this.props.activity.id}?reply`}>
                                     <i className="fa fa-reply" />
                                 </Link>
                             </li>
