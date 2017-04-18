@@ -83,13 +83,17 @@ export class FileUpload extends Dropzone {
         });
     }
 
+    open() {
+        this.dropzone.open();
+    }
+
     render() {
         let props = Object.assign({}, this.props);
         Reflect.deleteProperty(props, 'onUpload');
 
         return (
             <div style={{display: this.dropzoneDisplay}}>
-                <Dropzone {...props} onDrop={this.handleOnDrop}>
+                <Dropzone {...props} onDrop={this.handleOnDrop} ref={(el) => this.dropzone = el}>
                     Drop here
                 </Dropzone>
             </div>
