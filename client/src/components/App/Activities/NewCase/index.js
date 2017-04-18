@@ -121,7 +121,7 @@ export class NewCase extends Component {
                                 value={this.form.case.title}
                                 onChange={this.handleChange}
                                 placeholder="Case title"
-                                tabindex="1"
+                                tabIndex="1"
                             />
                         </div>
                     </div>
