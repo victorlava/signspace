@@ -56,25 +56,33 @@ export class PostTo extends React.Component {
 	}
 
     optionRenderer (option) {
-        const image = option['image_url'] || 'image';
-        const name = option['display_name'] || 'name';
-        const email = option['email'] || 'email';
-        const company = option['company_name'] || 'company';
+        if (option.className === "Select-create-option-placeholder") {
+            return (
+                <div>
+                    <strong>{option.display_name}</strong> is not in SignSpace yet. User will get an e-mail invitation to join SignSpace.
+                </div>
+            );
+        } else {
+            const image = option['image_url'] || 'image';
+            const name = option['display_name'] || 'name';
+            const email = option['email'] || 'email';
+            const company = option['company_name'] || 'company';
 
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-3 Option-user-icon">
-                        <img src={ lucas } />
-                    </div>
-                    <div className="col-9 Option-user-attributes">
-                        <span className="display_name">{ name }</span> <br />
-                        <span className="email">{ email }</span> <br />
-                        <span className="company_name">{ company }</span>
+            return (
+                <div className="container">
+                    <div className="row">
+                        <div className="col-3 Option-user-icon">
+                            <img src={ lucas } />
+                        </div>
+                        <div className="col-9 Option-user-attributes">
+                            <span className="display_name">{ name }</span> <br />
+                            <span className="email">{ email }</span> <br />
+                            <span className="company_name">{ company }</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 
 
@@ -111,6 +119,7 @@ export class PostTo extends React.Component {
                 onChange={this.handleChange}
                 optionRenderer={this.optionRenderer}
                 placeholder=""
+                promptTextCreator={(label) => `${label}`}
                 searchPromptText=""
                 value={this.state.value}
                 valueKey="id"
