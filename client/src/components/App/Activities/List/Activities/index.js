@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {PropTypes as MobxPropTypes, inject} from 'mobx-react';
+import {PropTypes as MobxPropTypes} from 'mobx-react';
 
 import {Item} from './Item';
 import './styles.scss';
- 
+
 
 export class Activities extends Component {
 
@@ -16,7 +16,7 @@ export class Activities extends Component {
             <div styleName="root">
                 <div styleName="group">
                     <a href="#" styleName="title">
-                        Today <i className="fa fa-caret-up"></i> {/* TODO: fa-caret-down */}
+                        Today <i className="fa fa-caret-up" /> {/* TODO: fa-caret-down */}
                     </a>
                     <ul styleName="item-list">
                         <For each="activity" of={this.props.activities}>
