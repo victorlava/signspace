@@ -43,7 +43,7 @@ export class NewActivityBar extends Component {
         this.setWidth();
     }
 
-    @action checkIsShown() {
+    checkIsShown() {
         const {history} = this.props;
         const qs = queryString.parse(window.location.search);
         if ('reply' in qs) {
@@ -74,7 +74,8 @@ export class NewActivityBar extends Component {
         document.addEventListener('click', this.handleClickPage, false);
         this.setWidth();
         animateScroll.scrollTo(
-            $('.Activities__Detail__parent-activity').offset().top - 8
+            $('.Activities__Detail__parent-activity').offset().top - 8,
+            {duration: 350}
         );
     }
 
