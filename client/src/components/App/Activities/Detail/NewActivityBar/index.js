@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, reaction} from 'mobx';
 import {observer, inject} from 'mobx-react';
 import autobind from 'autobind-decorator';
 
@@ -26,21 +26,27 @@ export class NewActivityBar extends Component {
 
     constructor(props, context) {
         super(props, context);
-        this.initActivity();
+        this.initNewActivity();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.parentActivity.id !== nextProps.parentActivity.id) {
+            this.initNewActivity(nextProps.parentActivity);
+        }
     }
 
     componentDidMount() {
         this.setWidth();
     }
 
-    @action initActivity() {
-        this.newActivity = this.createActivity();
+    @action initNewActivity(parent) {
+        parent = parent || this.props.parentActivity;
+        this.newActivity = this.createActivity(parent);
     }
 
     // TODO: Move to activityStore
-    createActivity() {
+    createActivity(parent) {
         const activity = new Activity();
-        const parent = this.props.parentActivity;
         activity.parent_id = parent.id;
         activity.to = parent.to;
         activity.case_id = parent.case_id;
@@ -88,7 +94,7 @@ export class NewActivityBar extends Component {
             .then(() => this.props.stores.activityStore.load())
             .then(() => this.props.stores.documentStore.load())
             .then(() => this.hide())
-            .then(() => this.initActivity());
+            .then(() => this.initNewActivity());
     }
 
     render() {
