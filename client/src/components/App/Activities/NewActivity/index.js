@@ -43,6 +43,7 @@ export class NewActivity extends Component {
 
     render() {
         return (
+            {/* TODO: need to add activity-bar class when this component is inside NewActivityBar component}*/}
             <div styleName="root">
                 <ul className="nav nav-tabs">
                     <li className="nav-item">

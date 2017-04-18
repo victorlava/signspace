@@ -18,8 +18,36 @@
     :global .input-group {
         border-bottom: 1px solid $teal-light; 
     }
+
+    :global .nav-tabs {
+        border-bottom: 0;
+        a {
+            font-size: $font-size-md;
+            i { padding-right: 12px !important; }
+        }
+    }
+
+    :global .Select-control {
+        background-color: transparent; // Fix for invisible border-radius
+    }
+
 }
 
-.newActivity {
-    
+.activity-bar {
+
+    :global .nav-tabs {
+
+        a {
+            color: #FFF;
+        }
+
+    }
+
+    :global .nav-tabs,
+    :global .nav-tabs a,
+    :global .nav-tabs + div {
+        border-color: transparent !important;
+    }
+
+
 }
