@@ -44,7 +44,7 @@ export class Message extends Component {
     }
 
     handleOnAttachmentIconClick(e) {
-        console.log(this.fileupload);
+        console.log('fileupload', this.fileupload);
         this.fileupload.open();
     }
 
