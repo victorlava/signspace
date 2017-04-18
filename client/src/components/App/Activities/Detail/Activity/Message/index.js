@@ -24,11 +24,11 @@ export class Message extends Component {
 
     render() {
         const {activity} = this.props;
-        console.log(activity);
 
         if (this.isLoading) {
             return <div>Loading</div>;
         }
+
         return (
             <div styleName="root"> 
                 <div className="row">
@@ -37,6 +37,7 @@ export class Message extends Component {
                         <div className="profile-image"></div>
                     </div> 
                     <div className="col-11">
+
                         <div styleName="title">
                             <p>
                                 <span styleName="name">
@@ -49,15 +50,16 @@ export class Message extends Component {
                                     </Link>  
                                 </span>
                                 <small styleName="date">
-                                    { /* TODO: wrong date format, should be 2017.02.15 15:00 */}
                                     <time dateTime={activity.created}>{activity.created.slice(0, 10)}</time>
                                     <i className="fa fa-unlock"></i>
                                 </small>
                             </p>
                         </div>
+
                         <div styleName="text">
                             <p>{activity.text}</p>
                         </div>
+
                         <If condition={activity.attachments} >
                             <For each="attachment_id" of={activity.attachments}>
                                 <div styleName="attachment" key={attachment_id}>
@@ -73,6 +75,7 @@ export class Message extends Component {
                                 </div>
                             </For>
                         </If>
+
                     </div>
                 </div>
             </div>

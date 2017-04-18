@@ -39,12 +39,13 @@ export class Activity extends Component {
 
 
     render() {
+        const parentClass = this.props.parent ? 'Activities__Detail__parent-activity' : '';
         return (
             <div>
                 <If condition={this.props.parent && this.parentActivity}>
                     <ParentLink parentActivity={this.parentActivity} />
                 </If>
-                <div styleName="root" className="box">
+                <div styleName="root" className={`box ${parentClass}`}>
                     <If condition={this.props.parent}>
                         <div styleName="parent" />
                     </If>
@@ -57,7 +58,7 @@ export class Activity extends Component {
                     <div styleName="tools">
                         <ul>
                             <li>
-                                <Link className="icon" to="#">
+                                <Link className="icon" to={`/activities/${this.props.activity.id}?reply`}>
                                     <i className="fa fa-reply" />
                                 </Link>
                             </li>

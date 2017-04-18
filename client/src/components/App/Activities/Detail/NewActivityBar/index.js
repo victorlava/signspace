@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import {action, observable, computed, reaction} from 'mobx';
 import {observer, inject} from 'mobx-react';
 import autobind from 'autobind-decorator';
+import queryString from 'query-string';
+import {animateScroll} from 'react-scroll';
 
 import {NewActivity} from 'components/App/Activities/NewActivity';
 import {Activity} from 'models/Activity';
 import './styles.scss';
 
 
-@inject('stores')
+@inject('stores', 'history')
 @observer
 @autobind
 export class NewActivityBar extends Component {
@@ -27,16 +29,27 @@ export class NewActivityBar extends Component {
     constructor(props, context) {
         super(props, context);
         this.initNewActivity();
+        this.checkIsShown();
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.parentActivity.id !== nextProps.parentActivity.id) {
             this.initNewActivity(nextProps.parentActivity);
         }
+        this.checkIsShown();
     }
 
     componentDidMount() {
         this.setWidth();
+    }
+
+    checkIsShown() {
+        const {history} = this.props;
+        const qs = queryString.parse(window.location.search);
+        if ('reply' in qs) {
+            this.show();
+            this.props.history.replace(window.location.pathname);
+        }
     }
 
     @action initNewActivity(parent) {
@@ -54,12 +67,22 @@ export class NewActivityBar extends Component {
     }
 
     @action show() {
+        if (this.isShown) {
+            return;
+        }
         this.isShown = true;
         document.addEventListener('click', this.handleClickPage, false);
         this.setWidth();
+        animateScroll.scrollTo(
+            $('.Activities__Detail__parent-activity').offset().top - 8,
+            {duration: 350}
+        );
     }
 
     @action hide() {
+        if ( ! this.isShown) {
+            return;
+        }
         this.isShown = false;
         document.removeEventListener('click', this.handleClickPage, false);
     }
