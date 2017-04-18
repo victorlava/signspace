@@ -22,17 +22,29 @@ export class NewActivityBar extends Component {
 
     @observable isShown = false;
     @observable width = 'auto';
-    @observable newActivity = new Activity();
+    @observable newActivity = null;
 
     constructor(props, context) {
         super(props, context);
-        this.newActivity.parent_id = props.parentActivity.id;
-        this.newActivity.to = props.parentActivity.to;
-        this.newActivity.case_id = props.parentActivity.case_id;
+        this.initActivity();
     }
 
     componentDidMount() {
         this.setWidth();
+    }
+
+    @action initActivity() {
+        this.newActivity = this.createActivity();
+    }
+
+    // TODO: Move to activityStore
+    createActivity() {
+        const activity = new Activity();
+        const parent = this.props.parentActivity;
+        activity.parent_id = parent.id;
+        activity.to = parent.to;
+        activity.case_id = parent.case_id;
+        return activity;
     }
 
     @action show() {
@@ -75,7 +87,8 @@ export class NewActivityBar extends Component {
         this.props.stores.activityStore.createActivity(this.newActivity)
             .then(() => this.props.stores.activityStore.load())
             .then(() => this.props.stores.documentStore.load())
-            .then(() => this.hide());
+            .then(() => this.hide())
+            .then(() => this.initActivity());
     }
 
     render() {
@@ -102,8 +115,8 @@ export class NewActivityBar extends Component {
                                 styleName="add"
                                 type="text"
                                 className="form-control"
-                                aria-label="Add a new activity"
-                                placeholder="Add a new activity"
+                                aria-label="Reply"
+                                placeholder="Reply"
                             />
                         </div>
                     </Otherwise>
