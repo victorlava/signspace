@@ -145,7 +145,7 @@ export class NewActivityBar extends Component {
                                 type="text"
                                 className="form-control"
                                 aria-label="Reply"
-                                placeholder="Reply"
+                                placeholder="Click here to reply"
                             />
                         </div>
                     </Otherwise>
