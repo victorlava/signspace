@@ -105,8 +105,9 @@ input, select, textarea,
     .dropdown-toggle{
         border-top-right-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
+        font-size: $font-size-md !important;
     }
-    
+
 }
 
 .profile-image {
